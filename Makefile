@@ -1,6 +1,6 @@
 LIB = -lsfml-graphics -lsfml-window -lsfml-system
 
-all: test
+all: game
 
 main.o: main.cpp
 	g++ -c "main.cpp" -o main.o
@@ -14,10 +14,10 @@ Paddle.o: Paddle.cpp
 Ball.o: Ball.cpp
 	g++ -c "Ball.cpp" -o Ball.o
 
-test: main.o Game.o Paddle.o Ball.o
+game: main.o Game.o Paddle.o Ball.o
 	@echo "BUILDING..."
-	g++ -o test main.o Game.o Paddle.o Ball.o $(LIB)
+	g++ -o game main.o Game.o Paddle.o Ball.o $(LIB)
 
 clean:
 	@echo "Wiping out object files..."
-	rm *.o test
+	rm *.o game
