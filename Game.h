@@ -17,5 +17,6 @@ class Game
 		void run();
 		void handleEvents();
 		void update();
+		void draw();
 
 };

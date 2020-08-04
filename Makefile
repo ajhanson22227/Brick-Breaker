@@ -11,7 +11,7 @@ Game.o: Game.cpp
 Paddle.o: Paddle.cpp
 	g++ -c "Paddle.cpp" -o Paddle.o
 
-test: main.o Game.o
+test: main.o Game.o Paddle.o
 	@echo "BUILDING..."
 	g++ -o test main.o Game.o Paddle.o $(LIB)
 

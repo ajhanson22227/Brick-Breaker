@@ -3,18 +3,27 @@
 
 Game::Game(sf::VideoMode videoMode){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
-    paddle = Paddle(sf::Vector2f(200, 50));
+    paddle = Paddle(sf::Vector2f(200, 50), 250, 450);
 }
 
 Game::~Game(){}
 
+void Game::update(){
+    paddle.update();
+}
+
+void Game::draw(){
+    paddle.draw(window);
+}
+
 void Game::run(){
-    
+    window.setFramerateLimit(15);
 
     while (window.isOpen()){
         handleEvents();
         window.clear();
-        paddle.draw(window);
+        update();
+        draw();
         window.display();
     }
 }
@@ -29,6 +38,12 @@ void Game::handleEvents(){
         if (event.type == sf::Event::KeyPressed){
             if (event.key.code == sf::Keyboard::Escape){
                 window.close();
+            }
+            else if (event.key.code == sf::Keyboard::Left){
+                paddle.moveLeft();
+            }
+            else if (event.key.code == sf::Keyboard::Right){
+                paddle.moveRight();
             }
         }
     }
