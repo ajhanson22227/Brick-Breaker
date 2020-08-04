@@ -1,19 +1,20 @@
+
 #include "Game.h"  
 
 Game::Game(sf::VideoMode videoMode){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
+    paddle = Paddle(sf::Vector2f(200, 50));
 }
 
 Game::~Game(){}
 
 void Game::run(){
-    sf::RectangleShape rect(sf::Vector2f(25, 20));
-    rect.setFillColor(sf::Color::Green);
+    
 
     while (window.isOpen()){
         handleEvents();
         window.clear();
-        window.draw(rect);
+        paddle.draw(window);
         window.display();
     }
 }

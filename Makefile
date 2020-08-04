@@ -8,9 +8,12 @@ main.o: main.cpp
 Game.o: Game.cpp
 	g++ -c "Game.cpp" -o Game.o
 
+Paddle.o: Paddle.cpp
+	g++ -c "Paddle.cpp" -o Paddle.o
+
 test: main.o Game.o
 	@echo "BUILDING..."
-	g++ -o test main.o Game.o $(LIB)
+	g++ -o test main.o Game.o Paddle.o $(LIB)
 
 clean:
 	@echo "Wiping out object files..."

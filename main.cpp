@@ -1,3 +1,4 @@
+#include "Paddle.h"
 #include "Game.h"
 
 int main(){
