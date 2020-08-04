@@ -4,7 +4,7 @@
 Game::Game(sf::VideoMode videoMode){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
     paddle = Paddle(sf::Vector2f(200, 50), 250, 450);
-    //ball = Ball(sf::Vector2f(50, 50), 250, 400);
+    ball = Ball(sf::Vector2f(50, 50), 250, 300);
 }
 
 Game::~Game(){}
@@ -15,7 +15,7 @@ void Game::update(){
 
 void Game::draw(){
     paddle.draw(window);
-    //ball.draw(window);
+    ball.draw(window);
 }
 
 void Game::run(){

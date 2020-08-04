@@ -8,7 +8,7 @@ class Game
 	private:
 		sf::RenderWindow window;
 		Paddle paddle;
-		//Ball ball;
+		Ball ball;
 
 	public:
 
