@@ -15,6 +15,7 @@ class Paddle
 
 		void moveLeft();
 		void moveRight();
+		sf::FloatRect getPosition();
 		void draw(sf::RenderTarget &window);
 		void update();
 

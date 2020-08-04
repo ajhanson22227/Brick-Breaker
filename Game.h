@@ -12,7 +12,7 @@ class Game
 
 	public:
 
-		Game(sf::VideoMode videoMode);
+		Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide);
 		~Game();
 
 		void run();

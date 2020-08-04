@@ -7,7 +7,8 @@ class Ball
 	private:
 		sf::RectangleShape ball;
 		sf::Vector2f position;
-		float speed = 10.0;
+		float xSpeed = 10.0;
+		float ySpeed = 10.0;
 
 	public:
 
@@ -17,5 +18,10 @@ class Ball
 
 		void update();
 		void draw(sf::RenderTarget &window);
+
+		sf::FloatRect getPosition();
+		void hitPaddle();
+		void hitSide();
+		void hitTop();
 
 };

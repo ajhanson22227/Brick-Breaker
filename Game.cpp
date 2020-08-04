@@ -1,16 +1,24 @@
 
 #include "Game.h"  
 
-Game::Game(sf::VideoMode videoMode){
+Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
-    paddle = Paddle(sf::Vector2f(200, 50), 250, 450);
-    ball = Ball(sf::Vector2f(50, 50), 250, 300);
+    paddle = Paddle(sf::Vector2f(padWidth, padHeight), videoMode.width / 2 - padWidth, videoMode.height - padHeight - 10);
+    ball = Ball(sf::Vector2f(ballSide, ballSide), videoMode.width / 2 - padWidth, videoMode.height - padHeight - ballSide);
 }
 
 Game::~Game(){}
 
 void Game::update(){
     paddle.update();
+
+    if (ball.getPosition().intersects(paddle.getPosition()))
+        ball.hitPaddle();
+    if (ball.getPosition().left == 0 || ball.getPosition().left + 50 > 800)
+        ball.hitSide();
+    if (ball.getPosition().top == 0)
+        ball.hitTop();
+    ball.update();
 }
 
 void Game::draw(){

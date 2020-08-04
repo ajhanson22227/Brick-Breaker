@@ -31,3 +31,7 @@ void Paddle::moveLeft(){
 void Paddle::moveRight(){
     position.x += moveSpeed;
 }
+
+sf::FloatRect Paddle::getPosition(){
+    return paddle.getGlobalBounds();
+}
