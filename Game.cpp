@@ -4,7 +4,7 @@
 Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
     paddle = Paddle(sf::Vector2f(padWidth, padHeight), videoMode.width / 2 - padWidth, videoMode.height - padHeight - 10);
-    ball = Ball(sf::Vector2f(ballSide, ballSide), videoMode.width / 2 - padWidth, videoMode.height - padHeight - ballSide);
+    ball = Ball(sf::Vector2f(ballSide, ballSide), videoMode.width / 2 - ballSide, videoMode.height - 4*ballSide);
 }
 
 Game::~Game(){}
@@ -18,6 +18,8 @@ void Game::update(){
         ball.hitSide();
     if (ball.getPosition().top == 0)
         ball.hitTop();
+    if (ball.getPosition().top == window.getSize().y)
+        ball.hitBottom();
     ball.update();
 }
 

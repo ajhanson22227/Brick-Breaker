@@ -7,8 +7,8 @@ Ball::Ball(){
 Ball::Ball(sf::Vector2f ballSize, float xPos, float yPos){
     ball.setSize(ballSize);
 
-    position.x = xPos;
-    position.y = yPos;
+    startXPos = position.x = xPos;
+    startYPos = position.y = yPos;
     ball.setPosition(position);
 
     ball.setFillColor(sf::Color::White);
@@ -41,4 +41,12 @@ void Ball::hitSide(){
 
 void Ball::hitTop(){
     ySpeed *= -1;
+}
+
+void Ball::hitBottom(){
+    position.x = startXPos;
+    position.y = startYPos;
+    xSpeed = 10;
+    ySpeed = -10;
+
 }

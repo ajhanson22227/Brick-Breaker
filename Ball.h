@@ -8,7 +8,9 @@ class Ball
 		sf::RectangleShape ball;
 		sf::Vector2f position;
 		float xSpeed = 10.0;
-		float ySpeed = 10.0;
+		float ySpeed = -10.0;
+		float startXPos;
+		float startYPos;
 
 	public:
 
@@ -23,5 +25,6 @@ class Ball
 		void hitPaddle();
 		void hitSide();
 		void hitTop();
+		void hitBottom();
 
 };
