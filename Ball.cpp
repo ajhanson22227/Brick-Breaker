@@ -50,3 +50,7 @@ void Ball::hitBottom(){
     ySpeed = -10;
 
 }
+
+float Ball::getHeight(){
+    return ball.getSize().y;
+}

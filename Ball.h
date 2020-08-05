@@ -26,5 +26,6 @@ class Ball
 		void hitSide();
 		void hitTop();
 		void hitBottom();
+		float getHeight();
 
 };
