@@ -1,12 +1,14 @@
 
 #include "Game.h"  
 
-Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide){
+Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide, float brickWidth, float brickHeight){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
     //sets the paddle position to half the window and to the bottom of the screen
     paddle = Paddle(sf::Vector2f(padWidth, padHeight), videoMode.width / 2 - padWidth, videoMode.height - padHeight - 10);
     //Set ball position to half the winow width and puts it in the air so it doesn't hit the paddle right away
     ball = Ball(sf::Vector2f(ballSide, ballSide), videoMode.width / 2 - ballSide, videoMode.height - 4*ballSide);
+
+    brick = Brick(brickWidth, brickHeight);
 }
 
 Game::~Game(){}
@@ -29,13 +31,14 @@ void Game::update(){
     if (ball.getPosition().top == window.getSize().y)
         ball.hitBottom();
 
-        
+
     ball.update();
 }
 
 void Game::draw(){
     paddle.draw(window);
     ball.draw(window);
+    brick.draw(window);
 }
 
 void Game::run(){

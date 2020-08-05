@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "Paddle.h"
 #include "Ball.h"
+#include "Brick.h"
 
 class Game  
 {
@@ -9,10 +10,12 @@ class Game
 		sf::RenderWindow window;
 		Paddle paddle;
 		Ball ball;
+		
+		Brick brick;
 
 	public:
 
-		Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide);
+		Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide, float brickWidth, float brickHeight);
 		~Game();
 
 		void run();
