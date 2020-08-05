@@ -14,9 +14,12 @@ Paddle.o: Paddle.cpp
 Ball.o: Ball.cpp
 	g++ -c "Ball.cpp" -o Ball.o
 
-game: main.o Game.o Paddle.o Ball.o
+Brick.o: Brick.cpp
+	g++ -c "Brick.cpp" -o Brick.o
+
+game: main.o Game.o Paddle.o Ball.o Brick.o
 	@echo "BUILDING..."
-	g++ -o game main.o Game.o Paddle.o Ball.o $(LIB)
+	g++ -o game main.o Game.o Paddle.o Ball.o Brick.o $(LIB)
 
 clean:
 	@echo "Wiping out object files..."
