@@ -35,3 +35,7 @@ void Paddle::moveRight(){
 sf::FloatRect Paddle::getPosition(){
     return paddle.getGlobalBounds();
 }
+
+float Paddle::getWidth(){
+    return paddle.getSize().x;
+}

@@ -31,8 +31,18 @@ sf::FloatRect Ball::getPosition(){
     return ball.getGlobalBounds();
 }
 
-void Ball::hitPaddle(){
+void Ball::hitPaddle(sf::FloatRect paddle, float width){
+    sf::Vector2f center(this->getHeight() / 2, this->getHeight() /2);
+    if (this->getPosition().left - this->getHeight() / 2 > paddle.left + width / 2 ){
+        xSpeed = 10;
+    }
+    else{
+        xSpeed = -10;
+    }
+    
     ySpeed *= -1;
+
+
 }
 
 void Ball::hitSide(){

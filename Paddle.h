@@ -18,5 +18,5 @@ class Paddle
 		sf::FloatRect getPosition();
 		void draw(sf::RenderTarget &window);
 		void update();
-
+		float getWidth();
 };

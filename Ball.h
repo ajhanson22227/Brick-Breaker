@@ -22,7 +22,7 @@ class Ball
 		void draw(sf::RenderTarget &window);
 
 		sf::FloatRect getPosition();
-		void hitPaddle();
+		void hitPaddle(sf::FloatRect paddle, float width);
 		void hitSide();
 		void hitTop();
 		void hitBottom();
