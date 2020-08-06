@@ -1,5 +1,6 @@
 
 #include "Game.h"  
+#include <iostream>
 
 Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballSide, float brickWidth, float brickHeight){
     window.create(videoMode, "BRICK BREAKER", sf::Style::Default);
@@ -8,7 +9,8 @@ Game::Game(sf::VideoMode videoMode, float padWidth, float padHeight, float ballS
     //Set ball position to half the winow width and puts it in the air so it doesn't hit the paddle right away
     ball = Ball(sf::Vector2f(ballSide, ballSide), videoMode.width / 2 - ballSide, videoMode.height - 4*ballSide);
 
-    brick = Brick(brickWidth, brickHeight);
+    //brick = Brick(brickWidth, brickHeight);
+    getBricks(brickWidth, brickHeight);
 }
 
 Game::~Game(){}
@@ -19,7 +21,7 @@ void Game::update(){
 
     //Get ball interactions
     //If the ball hits paddle
-    if (ball.getPosition().top + ball.getHeight() == paddle.getPosition().top)
+    if (ball.getPosition().intersects(paddle.getPosition()))
         ball.hitPaddle();
     //if the ball hits the left/right side
     if (ball.getPosition().left == 0 || ball.getPosition().left + 50 > 800)
@@ -32,17 +34,36 @@ void Game::update(){
         ball.hitBottom();
 
 
+    // if (ball.getPosition().intersects(brick.getPosition())){
+    //    sf::Vector2f center(ball.getPosition().left + ball.getHeight() / 2, ball.getPosition().top + ball.getHeight() / 2);
+    //    if (brick.getPosition().contains(center.x, ball.getPosition().top) || 
+    //         (brick.getPosition().contains(center.x, ball.getPosition().top + ball.getHeight()))){
+    //             std::cout << "TOP/BOTTOM\n";
+    //             ball.hitTop();
+    //     }
+    //     else if (brick.getPosition().contains(ball.getPosition().left, center.y) || 
+    //         (brick.getPosition().contains(ball.getPosition().left + ball.getHeight(), center.y))){
+    //             std::cout << "side\n";
+    //             ball.hitSide();
+    //     } 
+    // }
+
+    
+
     ball.update();
 }
 
 void Game::draw(){
     paddle.draw(window);
     ball.draw(window);
-    brick.draw(window);
+    for (auto &brick: bricks){
+        brick.draw(window);
+    }
+    //brick.draw(window);
 }
 
 void Game::run(){
-    window.setFramerateLimit(15);
+    window.setFramerateLimit(20);
 
     while (window.isOpen()){
         handleEvents();
@@ -70,6 +91,14 @@ void Game::handleEvents(){
             else if (event.key.code == sf::Keyboard::Right){
                 paddle.moveRight();
             }
+        }
+    }
+}
+
+void Game::getBricks(float brickWidth, float brickHeight){
+    for (int i = brickWidth; i < window.getSize().x; i+=brickWidth + 5){
+        for (int j = brickHeight; j < window.getSize().y / 3; j += brickHeight + 5){
+            bricks.push_back(Brick(brickWidth, brickHeight, i, j));
         }
     }
 }

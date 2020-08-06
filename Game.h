@@ -4,14 +4,19 @@
 #include "Ball.h"
 #include "Brick.h"
 
+#include <vector>
+
 class Game  
 {
 	private:
 		sf::RenderWindow window;
 		Paddle paddle;
 		Ball ball;
-		
-		Brick brick;
+		//Brick brick;
+
+		std::vector<Brick> bricks;
+
+
 
 	public:
 
@@ -22,5 +27,6 @@ class Game
 		void handleEvents();
 		void update();
 		void draw();
+		void getBricks(float brickWidth, float brickHeight);
 
 };

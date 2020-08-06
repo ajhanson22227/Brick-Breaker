@@ -54,3 +54,11 @@ void Ball::hitBottom(){
 float Ball::getHeight(){
     return ball.getSize().y;
 }
+
+float Ball::getXPos(){
+    return ball.getPosition().x;
+}
+
+float Ball::getYPos(){
+    return ball.getPosition().y;
+}

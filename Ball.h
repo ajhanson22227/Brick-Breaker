@@ -28,4 +28,7 @@ class Ball
 		void hitBottom();
 		float getHeight();
 
+		float getXPos();
+		float getYPos();
+
 };

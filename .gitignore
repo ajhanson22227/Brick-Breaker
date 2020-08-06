@@ -2,3 +2,4 @@ test
 game
 *.o
 *workspace*
+.vscode
