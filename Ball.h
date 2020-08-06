@@ -2,6 +2,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+const int DirUp = -10;
+const int DirDown = 10;
+const int DirLeft = -10;
+const int DirRight = 10;
+
 class Ball  
 {
 	private:

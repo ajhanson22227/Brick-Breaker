@@ -34,13 +34,13 @@ sf::FloatRect Ball::getPosition(){
 void Ball::hitPaddle(sf::FloatRect paddle, float width){
     sf::Vector2f center(this->getHeight() / 2, this->getHeight() /2);
     if (this->getPosition().left - this->getHeight() / 2 > paddle.left + width / 2 ){
-        xSpeed = 10;
+        xSpeed = DirRight;
     }
     else{
-        xSpeed = -10;
+        xSpeed = DirLeft;
     }
     
-    ySpeed *= -1;
+    ySpeed = DirUp;
 
 
 }
@@ -56,8 +56,8 @@ void Ball::hitTop(){
 void Ball::hitBottom(){
     position.x = startXPos;
     position.y = startYPos;
-    xSpeed = 10;
-    ySpeed = -10;
+    xSpeed = DirRight;
+    ySpeed = DirUp;
 
 }
 
