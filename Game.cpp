@@ -45,20 +45,23 @@ void Game::update()
                 (bricks[i].getPosition().contains(center.x, ball.getPosition().top + ball.getHeight())))
             {
                 //std::cout << "TOP/BOTTOM\n";
+                bricks[i].breakBrick();
                 if (bricks[i].isBroken())
+                {
                     bricks.erase(bricks.begin() + i);
-                else
-                    bricks[i].breakBrick();
+                }
+
                 ball.hitTop();
             }
             else if (bricks[i].getPosition().contains(ball.getPosition().left, center.y) ||
                      (bricks[i].getPosition().contains(ball.getPosition().left + ball.getHeight(), center.y)))
             {
                 //std::cout << "side\n";
+                bricks[i].breakBrick();
                 if (bricks[i].isBroken())
+                {
                     bricks.erase(bricks.begin() + i);
-                else
-                    bricks[i].breakBrick();
+                }
                 ball.hitSide();
             }
         }

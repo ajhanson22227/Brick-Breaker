@@ -9,7 +9,7 @@ const int DirDown = 10;
 const int DirLeft = -10;
 const int DirRight = 10;
 
-const int speed[] = {-10, 10};
+const int xspeed[] = {-10, 10};
 
 class Ball
 {
@@ -17,7 +17,7 @@ class Ball
 private:
 	sf::RectangleShape ball;
 	sf::Vector2f position;
-	float xSpeed = speed[rand() % 2];
+	float xSpeed = xspeed[rand() % 2];
 	float ySpeed = -10.0;
 	float startXPos;
 	float startYPos;
