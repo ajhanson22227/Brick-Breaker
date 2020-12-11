@@ -26,7 +26,7 @@ void Game::update()
     if (ball.getPosition().intersects(paddle.getPosition()))
         ball.hitPaddle(paddle.getPosition(), paddle.getWidth());
     //if the ball hits the left/right side
-    if (ball.getPosition().left == 0 || ball.getPosition().left + 50 > 800)
+    if (ball.getPosition().left == 0 || ball.getPosition().left + 20 > 800)
         ball.hitSide();
     //if the ball hits the top of screen
     if (ball.getPosition().top == 0)
