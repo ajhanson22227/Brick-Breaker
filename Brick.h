@@ -7,6 +7,7 @@ class Brick
 {
 private:
 	sf::RectangleShape brick;
+	sf::Color getColor(int lives);
 	int lives = rand() % 3 + 1;
 	bool broken = false;
 
@@ -25,5 +26,5 @@ public:
 	float getXPos();
 	float getYPos();
 
-	int getLives();
+	int isBroken();
 };

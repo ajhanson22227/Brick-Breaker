@@ -45,7 +45,7 @@ void Game::update()
                 (bricks[i].getPosition().contains(center.x, ball.getPosition().top + ball.getHeight())))
             {
                 //std::cout << "TOP/BOTTOM\n";
-                if (bricks[i].getLives() == 0)
+                if (bricks[i].isBroken())
                     bricks.erase(bricks.begin() + i);
                 else
                     bricks[i].breakBrick();
@@ -55,7 +55,7 @@ void Game::update()
                      (bricks[i].getPosition().contains(ball.getPosition().left + ball.getHeight(), center.y)))
             {
                 //std::cout << "side\n";
-                if (bricks[i].getLives() == 0)
+                if (bricks[i].isBroken())
                     bricks.erase(bricks.begin() + i);
                 else
                     bricks[i].breakBrick();

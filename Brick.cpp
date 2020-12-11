@@ -5,11 +5,27 @@ Brick::Brick() {}
 Brick::Brick(float width, float height, float x, float y)
 {
     brick.setSize({width, height});
-    brick.setFillColor(sf::Color::White);
+    brick.setFillColor(getColor(lives));
     brick.setPosition({x, y});
 }
 
 Brick::~Brick() {}
+
+sf::Color Brick::getColor(int lives)
+{
+    if (lives == 3)
+    {
+        return sf::Color::Blue;
+    }
+    else if (lives == 2)
+    {
+        return sf::Color::Green;
+    }
+    else
+    {
+        return sf::Color::White;
+    }
+}
 
 void Brick::draw(sf::RenderTarget &window)
 {
@@ -37,6 +53,7 @@ void Brick::breakBrick()
     lives -= 1;
     if (lives == 0)
         broken = true;
+    brick.setFillColor(getColor(lives));
 }
 
 float Brick::getXPos()
@@ -49,7 +66,7 @@ float Brick::getYPos()
     return brick.getPosition().y;
 }
 
-int Brick::getLives()
+int Brick::isBroken()
 {
-    return lives;
+    return broken;
 }
