@@ -27,6 +27,4 @@ public:
 	float getYPos();
 
 	int isBroken();
-
-	int getlife();
 };

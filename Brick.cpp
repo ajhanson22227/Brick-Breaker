@@ -70,8 +70,3 @@ int Brick::isBroken()
 {
     return broken;
 }
-
-int Brick::getlife()
-{
-    return lives;
-}
