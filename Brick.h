@@ -1,27 +1,29 @@
 
 #pragma once
 #include "SFML/Graphics.hpp"
+#include <cstdlib>
 
-class Brick  
+class Brick
 {
-	private:
-		sf::RectangleShape brick;
-		bool broken = false;
+private:
+	sf::RectangleShape brick;
+	int lives = rand() % 3 + 1;
+	bool broken = false;
 
-	public:
+public:
+	Brick();
+	Brick(float width, float height, float x, float y);
+	~Brick();
 
-		Brick();
-		Brick(float width, float height, float x, float y);
-		~Brick();
+	void breakBrick();
+	sf::FloatRect getPosition();
+	void update();
+	void draw(sf::RenderTarget &window);
 
-		void breakBrick();
-		sf::FloatRect getPosition();
-		void update();
-		void draw(sf::RenderTarget &window);
+	float getWidth();
+	float getHeight();
+	float getXPos();
+	float getYPos();
 
-		float getWidth();
-		float getHeight();
-		float getXPos();
-		float getYPos();
-
+	int getLives();
 };

@@ -1,40 +1,55 @@
-#include "Brick.h"  
+#include "Brick.h"
 
-Brick::Brick(){}
+Brick::Brick() {}
 
-Brick::Brick(float width, float height, float x, float y){
+Brick::Brick(float width, float height, float x, float y)
+{
     brick.setSize({width, height});
     brick.setFillColor(sf::Color::White);
-    brick.setPosition({x,y});
+    brick.setPosition({x, y});
 }
 
-Brick::~Brick(){}
+Brick::~Brick() {}
 
-void Brick::draw(sf::RenderTarget &window){
+void Brick::draw(sf::RenderTarget &window)
+{
     if (!broken)
         window.draw(brick);
 }
 
-sf::FloatRect Brick::getPosition(){
+sf::FloatRect Brick::getPosition()
+{
     return brick.getGlobalBounds();
 }
 
-float Brick::getWidth(){
+float Brick::getWidth()
+{
     return brick.getSize().x;
 }
 
-float Brick::getHeight(){
+float Brick::getHeight()
+{
     return brick.getSize().y;
 }
 
-void Brick::breakBrick(){
-    broken = true;
+void Brick::breakBrick()
+{
+    lives -= 1;
+    if (lives == 0)
+        broken = true;
 }
 
-float Brick::getXPos(){
+float Brick::getXPos()
+{
     return brick.getPosition().x;
 }
 
-float Brick::getYPos(){
+float Brick::getYPos()
+{
     return brick.getPosition().y;
+}
+
+int Brick::getLives()
+{
+    return lives;
 }
