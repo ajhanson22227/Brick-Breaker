@@ -7,7 +7,7 @@ If the ball hits the bottom of the screen, the game is over.
 
 ## Motivation
 
-I got the idea to re-create this game when I was learning the SFML library for c++. It was good practice for OOP with the ball, paddlem and brick interactions.
+I got the idea to re-create this game when I was learning the SFML library for c++. It was good practice for OOP with the ball, paddle, and brick interactions.
 
 ## Built with
 
