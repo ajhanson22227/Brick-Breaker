@@ -11,8 +11,8 @@ I got the idea to re-create this game when I was learning the SFML library for c
 
 ## Built with
 
-    * C++
-    * SFML
+- C++
+- SFML
 
 ## Installation
 
