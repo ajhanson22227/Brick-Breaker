@@ -16,4 +16,4 @@ I got the idea to re-create this game when I was learning the SFML library for c
 
 ## Installation
 
-Download the repository and in the terminal run `make` to compile the files. Then start the application by running `./game`.
+Download / Clone the repository and in the terminal run `make` to compile the files. Then start the application by running `./game`.
